@@ -2,6 +2,7 @@ import { useTypedUseSelector } from "../hooks/use-typed-selector";
 import AddCell from "./add-cell";
 import CellListItem from "./cell-list-item";
 import { Fragment } from "react";
+import './cell-list.css';
 
 const CellList: React.FC=()=>{
     const cells=useTypedUseSelector(({ cells:{order,data}})=>
@@ -18,9 +19,9 @@ const CellList: React.FC=()=>{
 
     ));
     return <div>
-        {rendereCells}
-        <div className={cells.length===0?'force-visible':''}>
+        <div className="cell-list">
             <AddCell forceVisible={cells.length===0} nextCellId={null}/>
+            {rendereCells}
         </div>
     </div>
 };
